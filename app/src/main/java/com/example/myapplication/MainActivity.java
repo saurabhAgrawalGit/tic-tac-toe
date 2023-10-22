@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         {
             pos[x]=x*10;
         }
+
         bt1=findViewById(R.id.btn1);
         bt2=findViewById(R.id.btn2);
         bt3=findViewById(R.id.btn3);
@@ -54,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
         bt7.setImageDrawable(null);
         bt8.setImageDrawable(null);
         bt9.setImageDrawable(null);
-
+        TV1.setText("Score X :- " + String.valueOf(player1));
+        TV2.setText("Score Y :- " + String.valueOf(player2));
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,38 +81,37 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(game.equals("x"))
-                {
-                    bt1.setImageResource(R.drawable.cross);
-                    pos[1]=1;
-                    i++;
+                if(pos[1]==10) {
+                    if (game.equals("x")) {
+                        bt1.setImageResource(R.drawable.cross);
+                        pos[1] = 1;
+                        i++;
+                    } else {
+                        bt1.setImageResource(R.drawable.circle);
+                        pos[1] = 0;
+                        i++;
+                    }
+
+                    if (win() == 1) {
+                        if (game.equals("x")) {
+                            Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
+                            player1++;
+                            TV2.setText("Score X :-  " + String.valueOf(player1));
+                        } else {
+                            Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
+                            player2++;
+                            TV2.setText("Score y :- " + String.valueOf(player2));
+
+                        }
+                        resetAll();
+                    }
+
+                    choosePlayer();
                 }
                 else
                 {
-                    bt1.setImageResource(R.drawable.circle);
-                    pos[1]=0;
-                    i++;
+                    Toast.makeText(MainActivity.this," already  fill ",Toast.LENGTH_SHORT).show();
                 }
-
-                if(win()==1)
-                {
-                    if(game.equals("x"))
-                    {
-                        Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
-                        player1++;
-                        TV2.setText("Score X :-  "+String.valueOf(player1));
-                    }
-                    else
-                    {
-                        Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
-                        player2++;
-                        TV2.setText("Score y :- "+String.valueOf(player2));
-
-                    }
-                    resetAll();
-                }
-
-                choosePlayer();
 
             }
         });
@@ -118,231 +119,221 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(game.equals("x"))
-                {
-                    bt2.setImageResource(R.drawable.cross);
-                    pos[2]=1;
-                    i++;
+                if(pos[2]==20) {
+                    if (game.equals("x")) {
+                        bt2.setImageResource(R.drawable.cross);
+                        pos[2] = 1;
+                        i++;
+                    } else {
+                        bt2.setImageResource(R.drawable.circle);
+                        pos[2] = 0;
+                        i++;
+                    }
+                    if (win() == 1) {
+                        if (game.equals("x")) {
+                            Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
+                            player1++;
+                            TV1.setText("Score X :- " + String.valueOf(player1));
+                        } else {
+                            Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
+                            player2++;
+                            TV2.setText("Score y :- " + String.valueOf(player2));
+
+                        }
+                        resetAll();
+                    }
+
+                    choosePlayer();
                 }
                 else
                 {
-                    bt2.setImageResource(R.drawable.circle);
-                    pos[2]=0;
-                    i++;
+                    Toast.makeText(MainActivity.this," already  fill ",Toast.LENGTH_SHORT).show();
                 }
-                if(win()==1)
-                {
-                    if(game.equals("x"))
-                    {
-                        Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
-                        player1++;
-                        TV1.setText("Score X :- "+String.valueOf(player1));
-                    }
-                    else
-                    {
-                        Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
-                        player2++;
-                        TV2.setText("Score y :- "+String.valueOf(player2));
-
-                    }
-                    resetAll();
-                }
-
-                choosePlayer();
 
             }
         });
         bt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(pos[3]==30) {
+                    if (game.equals("x")) {
+                        bt3.setImageResource(R.drawable.cross);
+                        pos[3] = 1;
+                        i++;
+                    } else {
+                        bt3.setImageResource(R.drawable.circle);
+                        pos[3] = 0;
+                        i++;
+                    }
+                    if (win() == 1) {
+                        if (game.equals("x")) {
+                            Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
+                            player1++;
+                            TV1.setText("Score X :- " + String.valueOf(player1));
+                        } else {
+                            Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
+                            player2++;
+                            TV2.setText("Score y :- " + String.valueOf(player2));
 
-                if(game.equals("x"))
-                {
-                    bt3.setImageResource(R.drawable.cross);
-                    pos[3]=1;
-                    i++;
+                        }
+                        resetAll();
+                    }
+
+                    choosePlayer();
                 }
                 else
                 {
-                    bt3.setImageResource(R.drawable.circle);
-                    pos[3]=0;
-                    i++;
+                    Toast.makeText(MainActivity.this," already  fill ",Toast.LENGTH_SHORT).show();
                 }
-                if(win()==1)
-                {
-                    if(game.equals("x"))
-                    {
-                        Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
-                        player1++;
-                        TV1.setText("Score X :- "+String.valueOf(player1));
-                    }
-                    else
-                    {
-                        Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
-                        player2++;
-                        TV2.setText("Score y :- "+String.valueOf(player2));
-
-                    }
-                    resetAll();
-                }
-
-                choosePlayer();
             }
         });
         bt4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(game.equals("x"))
-                {
-                    bt4.setImageResource(R.drawable.cross);
-                    pos[4]=1;
-                    i++;
+                if(pos[4]==40) {
+                    if (game.equals("x")) {
+                        bt4.setImageResource(R.drawable.cross);
+                        pos[4] = 1;
+                        i++;
+                    } else {
+                        bt4.setImageResource(R.drawable.circle);
+                        pos[4] = 0;
+                        i++;
+                    }
+                    if (win() == 1) {
+                        if (game.equals("x")) {
+                            Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
+                            player1++;
+                            TV1.setText("Score X :- " + String.valueOf(player1));
+                        } else {
+                            Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
+                            player2++;
+                            TV2.setText("Score y :- " + String.valueOf(player2));
+
+                        }
+                        resetAll();
+                    }
+
+                    choosePlayer();
                 }
                 else
                 {
-                    bt4.setImageResource(R.drawable.circle);
-                    pos[4]=0;
-                    i++;
+                    Toast.makeText(MainActivity.this," already  fill ",Toast.LENGTH_SHORT).show();
                 }
-                if(win()==1)
-                {
-                    if(game.equals("x"))
-                    {
-                        Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
-                        player1++;
-                        TV1.setText("Score X :- "+String.valueOf(player1));
-                    }
-                    else
-                    {
-                        Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
-                        player2++;
-                        TV2.setText("Score y :- "+String.valueOf(player2));
-
-                    }
-                    resetAll();
-                }
-
-                choosePlayer();
             }
         });
         bt5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(game.equals("x"))
-                {
-                    bt5.setImageResource(R.drawable.cross);
-                    pos[5]=1;
-                    i++;
+                if(pos[5]==50) {
+                    if (game.equals("x")) {
+                        bt5.setImageResource(R.drawable.cross);
+                        pos[5] = 1;
+                        i++;
+                    } else {
+                        bt5.setImageResource(R.drawable.circle);
+                        pos[5] = 0;
+                        i++;
+                    }
+
+                    if (win() == 1) {
+                        if (game.equals("x")) {
+                            Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
+                            player1++;
+                            TV1.setText("Score X :- " + String.valueOf(player1));
+                        } else {
+                            Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
+                            player2++;
+                            TV2.setText("Score y :- " + String.valueOf(player2));
+
+                        }
+                        resetAll();
+                    }
+
+                    choosePlayer();
                 }
                 else
                 {
-                    bt5.setImageResource(R.drawable.circle);
-                    pos[5]=0;
-                    i++;
+                    Toast.makeText(MainActivity.this," already  fill ",Toast.LENGTH_SHORT).show();
                 }
-
-                if(win()==1)
-                {
-                    if(game.equals("x"))
-                    {
-                        Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
-                        player1++;
-                        TV1.setText("Score X :- "+String.valueOf(player1));
-                    }
-                    else
-                    {
-                        Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
-                        player2++;
-                        TV2.setText("Score y :- "+String.valueOf(player2));
-
-                    }
-                    resetAll();
-                }
-
-                choosePlayer();
             }
         });
         bt6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(game.equals("x"))
-                {
-                    bt6.setImageResource(R.drawable.cross);
-                    pos[6]=1;
-                    i++;
+                if(pos[6]==60) {
+                    if (game.equals("x")) {
+                        bt6.setImageResource(R.drawable.cross);
+                        pos[6] = 1;
+                        i++;
+                    } else {
+                        bt6.setImageResource(R.drawable.circle);
+                        pos[6] = 0;
+                        i++;
+                    }
+                    if (win() == 1) {
+                        if (game.equals("x")) {
+                            Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
+                            player1++;
+                            TV1.setText("Score X :- " + String.valueOf(player1));
+                        } else {
+                            Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
+                            player2++;
+                            TV2.setText("Score y :- " + String.valueOf(player2));
+
+                        }
+                        resetAll();
+                    }
+
+                    choosePlayer();
                 }
                 else
                 {
-                    bt6.setImageResource(R.drawable.circle);
-                    pos[6]=0;
-                    i++;
+                    Toast.makeText(MainActivity.this," already  fill ",Toast.LENGTH_SHORT).show();
                 }
-                if(win()==1)
-                {
-                    if(game.equals("x"))
-                    {
-                        Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
-                        player1++;
-                        TV1.setText("Score X :- "+String.valueOf(player1));
-                    }
-                    else
-                    {
-                        Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
-                        player2++;
-                        TV2.setText("Score y :- "+String.valueOf(player2));
-
-                    }
-                    resetAll();
-                }
-
-                choosePlayer();
             }
         });
         bt7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(game.equals("x"))
-                {
-                    bt7.setImageResource(R.drawable.cross);
-                    pos[7]=1;
-                    i++;
-                }
-                else
-                {
-                    bt7.setImageResource(R.drawable.circle);
-                    pos[7]=0;
-                    i++;
-                }
-
-                if(win()==1)
-                {
-                    if(game.equals("x"))
-                    {
-                        Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
-                        player1++;
-                        TV1.setText("Score X :- "+String.valueOf(player1));
+                if (pos[7] == 70) {
+                    if (game.equals("x")) {
+                        bt7.setImageResource(R.drawable.cross);
+                        pos[7] = 1;
+                        i++;
+                    } else {
+                        bt7.setImageResource(R.drawable.circle);
+                        pos[7] = 0;
+                        i++;
                     }
-                    else
-                    {
-                        Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
-                        player2++;
-                        TV2.setText("Score y :- "+String.valueOf(player2));
 
+                    if (win() == 1) {
+                        if (game.equals("x")) {
+                            Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
+                            player1++;
+                            TV1.setText("Score X :- " + String.valueOf(player1));
+                        } else {
+                            Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
+                            player2++;
+                            TV2.setText("Score y :- " + String.valueOf(player2));
+
+                        }
+                        resetAll();
                     }
-                    resetAll();
-                }
 
-                choosePlayer();
+                    choosePlayer();
+                }
             }
         });
         bt8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if(pos[8]==80){
                 if(game.equals("x"))
                 {
                     bt8.setImageResource(R.drawable.cross);
@@ -374,44 +365,47 @@ public class MainActivity extends AppCompatActivity {
                     resetAll();
                 }
 
-                choosePlayer();
+                choosePlayer();}
+                else
+                {
+                    Toast.makeText(MainActivity.this," already  fill ",Toast.LENGTH_SHORT).show();
+                }
 
             }
         }); bt9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(game.equals("x"))
-                {
-                    bt9.setImageResource(R.drawable.cross);
-                    pos[9]=1;
-                    i++;
+                if(pos[9]==90) {
+                    if (game.equals("x")) {
+                        bt9.setImageResource(R.drawable.cross);
+                        pos[9] = 1;
+                        i++;
+                    } else {
+                        bt9.setImageResource(R.drawable.circle);
+                        pos[9] = 0;
+                        i++;
+                    }
+                    if (win() == 1) {
+                        if (game.equals("x")) {
+                            Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
+                            player1++;
+                            TV1.setText("Score X :- " + String.valueOf(player1));
+                        } else {
+                            Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
+                            player2++;
+                            TV2.setText("Score y :- " + String.valueOf(player2));
+
+                        }
+                        resetAll();
+                    }
+
+                    choosePlayer();
                 }
                 else
                 {
-                    bt9.setImageResource(R.drawable.circle);
-                    pos[9]=0;
-                    i++;
+                    Toast.makeText(MainActivity.this," already  fill ",Toast.LENGTH_SHORT).show();
                 }
-                if(win()==1)
-                {
-                    if(game.equals("x"))
-                    {
-                        Toast.makeText(MainActivity.this, "Player X Win ", Toast.LENGTH_LONG).show();
-                        player1++;
-                        TV1.setText("Score X :- "+String.valueOf(player1));
-                    }
-                    else
-                    {
-                        Toast.makeText(MainActivity.this, "Player O Win ", Toast.LENGTH_LONG).show();
-                        player2++;
-                        TV2.setText("Score y :- "+String.valueOf(player2));
-
-                    }
-                    resetAll();
-                }
-
-                choosePlayer();
 
             }
         });
@@ -473,7 +467,7 @@ public class MainActivity extends AppCompatActivity {
     {
         for(x=0;x<10;x++)
         {
-            pos[x]=x*10;
+            pos[x]=(x)*10;
         }
         i=0;
         bt1.setImageDrawable(null);
