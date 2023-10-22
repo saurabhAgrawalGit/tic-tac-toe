@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="textview">TextView</string>
+    <string name="player_1">Player 1 :-</string>
+    <string name="player_2">player_2</string>
+    <string name="player_22">player_2:-</string>
+</resources>
